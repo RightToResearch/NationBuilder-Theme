@@ -1,73 +1,7 @@
-{% assign sched_url = "http://opencon2014au.sched.org/" %}
+{% assign sched_url = "http://opencon2014.sched.org/" %}
 
 {% include "breadcrumbs" %}
 
-{% if page.headline.size > 0 %}
-<div id="headline">
-  <h2>{{ page.headline }}</h2>
-  {% if page.has_author? %}
-  {% include "page_byline" %}
-  {% endif %}
-</div>
-{% endif %}
-
-<div id="content">
-  {% if page.event.content.size > 0 %}
-  <div id="intro" class="intro">
-    {{ page.event.content }}
-  </div>
-  {% endif %}
-
-  <div class="event-detail">
-    <h6 class="subhead">WHEN</h6>
-    <div class="subtext">
-      {% if page.event.is_multi_day? %}
-      {{ page.event.local_start_at | event_time }} - {{ page.event.local_end_at | event_date }}
-      {% else %}
-      {{ page.event.local_start_at | event_time }} - {{ page.event.local_end_at | event_just_time }}
-      {% endif %}
-    </div>
-  </div>
-
-  {% if page.event.has_venue? %}
-
-  <div class="event-detail">
-    <h6 class="subhead">WHERE</h6>
-    <div class="subtext">
-      {% if page.event.venue_name.size > 0 %}
-      {{ page.event.venue_name }}<br/>
-      {% endif %}
-      {% for line in page.event.venue_address.multi_line %}
-      {{ line }}<br/>
-      {% endfor %}
-      {% if page.event.has_venue_address? %}
-      <a href="{{ page.event.venue_address.google_map_link }}">Google map and directions</a>
-
-      {% endif %}
-    </div>
-  </div>
-
-  {% endif %}
-
-  <h2>Agenda</h2>
-  <a id="sched-embed" href="{{ sched_url }}">View the OpenCon 2014 schedule & directory.</a><script type="text/javascript" src="{{ sched_url }}js/embed.js"></script>
-  
-  {% if page.event.has_contact? %}
-
-  <div class="event-detail">
-    <h6 class="subhead">CONTACT</h6>
-    <div class="subtext">
-      {{ page.event.contact_name }}
-      {% if page.event.has_public_contact_email? %}
-      &middot; {{ page.event.contact_email | enkode_email }}
-      {% endif %}
-      {% if page.event.has_public_contact_phone_number? %}
-      &middot; {{ page.event.contact_phone_number }}
-      {% endif %}
-    </div>
-  </div>
-
-  {% endif %}
 
   {% if page.event.is_ticket_required? %}
 
@@ -389,8 +323,24 @@
       <i class="icon-phone-squared"></i>or {{ page.text_keyword_instructions }}
     </div>
     {% endif %}
-
+    </div>
     {% endif %}
+
+
+    <div id="content">
+  {% if page.event.content.size > 0 %}
+      <h2>Details</h2>
+  <div id="intro" class="intro">
+    {{ page.event.content }}
+  </div>
+  {% endif %}
+
+
+  
+
+  <h2>Agenda</h2>
+  <a id="sched-embed" href="{{ sched_url }}">View the OpenCon 2014 schedule & directory.</a><script type="text/javascript" src="{{ sched_url }}js/embed.js"></script>
+  
 
   </div>
 
@@ -407,4 +357,3 @@
   {% if page.show_stream? %}
   {% include "page_stream" %}
   {% endif %}
-</div>

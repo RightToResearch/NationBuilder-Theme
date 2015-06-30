@@ -12,9 +12,12 @@
     <!-- .left_column -->
 
     <div class="col-md-3 sidebar">
+      {% if page.type_name == "Event" %}
+      {% include "events_sidebar" %}
+      {% endif %}
 
       {% if request.logged_in? %}
-
+      
       {% include "supporter_nav" %}
 
       {% else %}

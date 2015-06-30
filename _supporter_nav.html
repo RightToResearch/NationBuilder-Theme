@@ -1,18 +1,3 @@
-{% if page.type_name == "Event" %}
-<div class="map media" id="rtr-map">
-        <a href="{{ page.event.venue_address.google_map_link }}">
-        <img
-        src="https://maps.googleapis.com/maps/api/staticmap?center={{ page.event.venue_address.lat }},{{ page.event.venue_address.lng }}&zoom=13&size=237x237&maptype=roadmap&markers=color:blue|label:S|{{ page.event.venue_address.lat }},{{ page.event.venue_address.lng }}" />
-        </a>
-</div>
-<script>
-  width = document.getElementById('rtr-map').clientWidth;
-  map_html = '<a href="{{ page.event.venue_address.google_map_link }}"><img src="https://maps.googleapis.com/maps/api/staticmap?center={{ page.event.venue_address.lat }},{{ page.event.venue_address.lng }}&zoom=13&size=' + width + 'x' + width + '&maptype=roadmap&markers=color:blue|label:S|{{ page.event.venue_address.lat }},{{ page.event.venue_address.lng }}" /></a>';
-        document.getElementById('rtr-map').innerHTML = map_html;
-</script>
-
-{% endif %}
-
 <div class="media">
   <div class="media-left">
     {{ request.current_signup.bigger_profile_image }}
