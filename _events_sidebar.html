@@ -1,7 +1,7 @@
 {% if page.type_name == "Event" %}
 
 <div class="event-detail">
-    <h6 class="subhead">WHEN</h6>
+    <h4>When</h4>
     <div class="subtext">
       {% if page.event.is_multi_day? %}
       {{ page.event.local_start_at | event_time }} - {{ page.event.local_end_at | event_date }}
@@ -14,7 +14,7 @@
  {% if page.event.has_venue? %}
 
   <div class="event-detail">
-    <h6 class="subhead">WHERE</h6>
+    <h4>Where</h4>
     <div class="subtext">
       {% if page.event.venue_name.size > 0 %}
       {{ page.event.venue_name }}<br/>
@@ -51,31 +51,29 @@
   {% if page.event.has_contact? %}
 
   <div class="event-detail">
-    <h6 class="subhead">CONTACT</h6>
-    <div class="subtext">
-      {{ page.event.contact_name }}
-      {% if page.event.has_public_contact_email? %}
-      &middot; {{ page.event.contact_email | enkode_email }}
-      {% endif %}
-      {% if page.event.has_public_contact_phone_number? %}
-      &middot; {{ page.event.contact_phone_number }}
-      {% endif %}
-    </div>
-  </div>
-
-  <div class="event-detail">
-    <h6 class="subhead">HOSTS</h6>
+    <h4 class="subhead">Hosts</h4>
     <div class="subtext">
       {% if page.event.is_hosts? %}
         {% for host in page.event.hosts %}
 
-      {{host.signup.smaller_profile_image }}
+      {{host.signup.profile_image }}
       {{ host.signup.published_name_linked  }}<br/>
 
       {% if host.signup.has_bio? %}
       {{host.signup.bio }}
       {% endif %}
       {% endfor %}      
+      {% endif %}
+    </div>
+  </div>
+
+
+  <div class="event-detail">
+    <h4 class="subhead">Contact</h4>
+    <div class="subtext">
+      {{ page.event.contact_name }}
+      {% if page.event.has_public_contact_email? %}
+      &middot; {{ page.event.contact_email | enkode_email }}
       {% endif %}
     </div>
   </div>

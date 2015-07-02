@@ -7,7 +7,7 @@
 
   {% if page.event.show_guests? and page.event.rsvps_count > 0 %}
   <div class="event-detail">
-    <h6 class="subhead">{{ page.event.rsvps_count | number_with_commas }} RSVP{% if page.event.rsvps_count > 1 %}S{% endif %}</h6>
+    <h2 class="subhead">{{ page.event.rsvps_count | number_with_commas }} RSVP{% if page.event.rsvps_count > 1 %}S{% endif %}</h2>
     <div class="subtext">
       {% for rsvp in page.event.rsvps %}
       {{ rsvp.signup.smaller_profile_image }}
@@ -33,7 +33,7 @@
     <div class="form-wrap">
       <div class="form">
 
-          <h4>Will you come?</h4>
+          <h2>Will you come?</h2>
 
         {% for ticket_level in page.event.ticket_levels %}
 
@@ -76,7 +76,7 @@
   {% if page.event.is_user_ticket_required? %}
 
   <div class="event-detail">
-    <h6 class="subhead">TICKETS</h6>
+    <h2 class="subhead">TICKETS</h2>
     <div class="subtext">
       {{ page.event.user_ticket_price_with_currency }}
       {% if page.event.has_user_ticket_purchase_url? %}
@@ -88,7 +88,7 @@
   {% elsif page.event.has_user_ticket_purchase_url? %}
 
   <div class="event-detail">
-    <h6 class="subhead">TICKETS</h6>
+    <h2 class="subhead">TICKETS</h2>
     <div class="subtext">
       <a href="{{ page.event.user_ticket_purchase_url }}">FREE</a>
     </div>
@@ -98,7 +98,7 @@
 
   {% if page.event.show_guests? and page.event.rsvps_count > 0 %}
   <div class="event-detail">
-  <h6 class="subhead">{{ page.event.rsvps_count | number_with_commas }} RSVP{% if page.event.rsvps_count > 1 %}S{% endif %}</h6>
+  <h2 class="subhead">{{ page.event.rsvps_count | number_with_commas }} RSVP{% if page.event.rsvps_count > 1 %}S{% endif %}</h2>
   <div class="subtext">
     {% for rsvp in page.event.rsvps %}
     {{ rsvp.signup.smaller_profile_image }}
@@ -121,9 +121,9 @@
       <div class="form">
 
           {% if page.event.current_rsvp.is_canceled? %}
-          <h3>Your RSVP was canceled.</h3>
+          <h2>Your RSVP was canceled.</h2>
           {% else %}
-          <h3>Thank you for rsvp'ing.  We'll see you there!</h3>
+          <h2>Thank you for rsvp'ing.  We'll see you there!</h2>
           {% endif %}
 
         {% if request.sorta_logged_in? and request.logged_in? == false %}
@@ -190,7 +190,7 @@
 
         {% if request.sorta_logged_in? %}
 
-          <h4>Hi {{ request.current_signup.name_or_email }}, will you come?</h4>
+          <h2>Hi {{ request.current_signup.name_or_email }}, will you come?</h2>
 
         {% if request.logged_in? == false %}
         <div class="padtop text-content">
@@ -200,7 +200,7 @@
 
         {% else %}
 
-          <h4>Will you come?</h4>
+          <h2>Will you come?</h2>
 
         {% endif %}
 
@@ -327,6 +327,11 @@
     {% endif %}
 
 
+    {% endif %}
+
+  {% endif %}
+
+
     <div id="content">
   {% if page.event.content.size > 0 %}
       <h2>Details</h2>
@@ -336,7 +341,7 @@
   {% endif %}
 
 
-  
+
 
   <h2>Agenda</h2>
   <a id="sched-embed" href="{{ sched_url }}">View the OpenCon 2014 schedule & directory.</a><script type="text/javascript" src="{{ sched_url }}js/embed.js"></script>
@@ -344,9 +349,7 @@
 
   </div>
 
-  {% endif %}
 
-  {% endif %}
 
   {% if page.tags_count > 0 %}
   <div id="page-tags" class="page-tags">
