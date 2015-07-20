@@ -65,9 +65,11 @@
           {% endif %}
 
           {% if site.has_twitter? %}
-          <div class="padtop">
-            <a href="{{ site.broadcaster.twitter_profile_url }}" class="twitter-follow-button" data-show-count="false">Follow @{{ site.broadcaster.twitter_login }} on Twitter</a>
-          </div>
+<div class="padtop">
+      <a class="twitter-timeline" href="https://twitter.com/open_con" data-widget-id="622469219729453056">Tweets by @open_con</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>
+
           {% endif %}
         </div>
         {% if page and page.has_rss? %}
