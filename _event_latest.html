@@ -1,0 +1,6 @@
+<div class="grid">
+      {% for event in page.calendar.events_upcoming limit:3 %} <div class="grid-3">
+    {% include "event" %}</div>
+{% endfor %}
+  
+  

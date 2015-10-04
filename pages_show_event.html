@@ -1,6 +1,23 @@
-{% assign sched_url = "http://opencon2014.sched.org/" %}
+{% assign sched_url = "https://satelliteeventfortemplate2016.sched.org/" %}
 
 {% include "breadcrumbs" %}
+
+<style>
+  .mobile-only {
+    display:none;
+  }
+  .sidebar #event-sidebar {
+    display:block;
+  }
+  @media screen and (max-width: 600px) {
+    .mobile-only {
+        display: block;
+    }
+    .sidebar #event-sidebar  {
+      display:none;
+    }
+}
+</style>
 
 
   {% if page.event.is_ticket_required? %}
@@ -337,6 +354,9 @@
       <h2>Details</h2>
   <div id="intro" class="intro">
     {{ page.event.content }}
+    <div class="mobile-only">
+      {% include "events_sidebar" %}
+    </div>
   </div>
   {% endif %}
 

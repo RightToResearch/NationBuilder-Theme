@@ -238,3 +238,5 @@
   })
 
 }(jQuery);
+
+jQuery( "#carousel-generic" ).parent().css( "background-image", "url(\"http://d3n8a8pro7vhmx.cloudfront.net/themes/55814e112213932968000001/attachments/original/1437305794/background.png\")" );

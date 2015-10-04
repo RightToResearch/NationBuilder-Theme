@@ -16,15 +16,24 @@
     </script>
     
     <!-- RTR Custom -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:100,300,400,400italic,700,700italic' rel='stylesheet' type='text/css'>
   </head>
   <body class="aware-theme v2-theme {{ page.page_class_name }} page-{{ request.template | replace: '_', '-' }} js">
 
     {% include "nav" %}
                 <!-- Temporary header -->
-        <div style="width:100%;background-color:#112435;display:block;">
-          <p style="text-align:center;text-size:larger;padding-top:10px;padding-bottom:10px;color:white;">We have a new website! <a href="website_feedback">Report bugs or make a suggestion.</a></p>  
-        </div>
+   
+    <style>
+      nav {
+        margin-bottom: 0px !important;
+      }
+      @media screen and (max-width: 600px) {
+        grid-2 {
+          width: 100% !important;
+       }
+     }
+    </style>
+    <!--END -->
 
     {% if site.has_header_image? and page.features_count == 0 %}
     <div class="container header-image-container">
@@ -56,15 +65,16 @@
     <!-- .main-container -->
 
     <footer style="background-color:#292C33; padding-top:15px;color:white;">
-      <div class="container {% if site.has_background_image? %}well well-lg{% endif %}" >
+      <div class="container {% if site.has_background_image? %}well well-lg{% endif %}" style="width:60%;margin:auto;">
 
         {{ content_for_footer }}
 
         {% if site.footer_content.size > 0 %}
-        <div class="footer-text" style="width:50%;float:left;">{{ site.footer_content }}</div>
-        <div class="footer-text" style="width:50%;float:left;">{% subpage "footer_suggest" with "got_questions" %}</div>
+        <div class="footer-text grid-2" style="width:50%;float:left;">{{ site.footer_content }}</div>
+        <div class="footer-text grid-2" style="width:50%;float:left;">{% subpage "footer_suggest" with "got_questions" %}</div>
         <hr/>
         {% endif %}
+<!--
         <div style="width:100%;display:block;float:left;">
           <div class="col-md-6 footer-left">
             {% if request.logged_in? %}
@@ -79,10 +89,11 @@
                   href="{{ request.twitter_connect_url }}">Twitter</a> or <a href="/login">email</a>.
             {% endif %}
           </div>
+-->
           <div class="col-md-6 footer-right text-right">            
             <!-- The NationBuilder link below is required. If it is removed, we may add it back ourselves.
                  You can style it or move it in different ways, but please leave it in the footer. -->
-            Created with <a href="http://nationbuilder.com/">NationBuilder</a>
+            <s[an style="color:gray;">Created with <a href="http://nationbuilder.com/" style="color:gray;">NationBuilder</a></span>
           </div>
         </div>
 
@@ -111,6 +122,15 @@
     {% endif %}
 
     <script src="bootstrap.js"></script>
+    {% if page.slug == "homenew" %}
+      <script>
+        jQuery( "#carousel-generic" ).parent().css( "background-image", "url(\"http://d3n8a8pro7vhmx.cloudfront.net/themes/55814e112213932968000001/attachments/original/1437305794/background.png\")" );
+        jQuery("#middle").css("margin-top", "0px");
+        jQuery(".main").css("padding", "0px");
+</script>
+      <style>
+      </style>
+      {% endif %}
 
   </body>
 </html>

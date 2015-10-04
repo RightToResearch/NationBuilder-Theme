@@ -2,6 +2,15 @@
 // Navbars
 // --------------------------------------------------
 
+//RTR changes
+.active > a {
+  border-bottom: 1px solid #E3401F;
+}
+
+.navbar-nav {
+  float: right !important;
+}
+
 
 // Wrapper and base class
 //
@@ -165,9 +174,10 @@
   float: left;
   padding: $navbar-padding-vertical $navbar-padding-horizontal;
   font-size: $font-size-large;
+  font-family: "Open Sans","Arial",sans-serif;
   line-height: $line-height-computed;
   height: $navbar-height;
-
+  color: black !important;
   &:hover,
   &:focus {
     text-decoration: none;
@@ -425,8 +435,8 @@
       &,
       &:hover,
       &:focus {
-        color: $navbar-default-link-active-color;
-        background-color: $navbar-default-link-active-bg;
+        color: black;
+        background-color: white;
       }
     }
     > .disabled > a {
@@ -491,7 +501,6 @@
           &:hover,
           &:focus {
             color: $navbar-default-link-disabled-color;
-            background-color: $navbar-default-link-disabled-bg;
           }
         }
       }
@@ -529,7 +538,6 @@
 // Inverse navbar
 
 .navbar-inverse {
-  background-color: $navbar-inverse-bg;
   border-color: $navbar-inverse-border;
 
   .navbar-brand {
@@ -537,7 +545,6 @@
     &:hover,
     &:focus {
       color: $navbar-inverse-brand-hover-color;
-      background-color: $navbar-inverse-brand-hover-bg;
     }
   }
 
@@ -552,7 +559,6 @@
       &:hover,
       &:focus {
         color: $navbar-inverse-link-hover-color;
-        background-color: $navbar-inverse-link-hover-bg;
       }
     }
     > .active > a {
@@ -560,7 +566,6 @@
       &:hover,
       &:focus {
         color: $navbar-inverse-link-active-color;
-        background-color: $navbar-inverse-link-active-bg;
       }
     }
     > .disabled > a {
@@ -568,7 +573,6 @@
       &:hover,
       &:focus {
         color: $navbar-inverse-link-disabled-color;
-        background-color: $navbar-inverse-link-disabled-bg;
       }
     }
   }
@@ -578,7 +582,7 @@
     border-color: $navbar-inverse-toggle-border-color;
     &:hover,
     &:focus {
-      background-color: $navbar-inverse-toggle-hover-bg;
+
     }
     .icon-bar {
       background-color: $navbar-inverse-toggle-icon-bar-bg;
@@ -596,7 +600,7 @@
       &,
       &:hover,
       &:focus {
-        background-color: $navbar-inverse-link-active-bg;
+
         color: $navbar-inverse-link-active-color;
       }
     }
