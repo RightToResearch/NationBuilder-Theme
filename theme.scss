@@ -86,21 +86,28 @@ body {
   width:12%;
 }
 
-.rtr-button-3 {
+.rtr-button{
   width:100%;
   padding:0px;
   display:table;
 }
 
-.rtr-button-3 li {
+.rtr-button li {
   float: left;
   list-style: none;
-  width: 33%;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-.rtr-button-3 a {
+.rtr-button-3 li {
+  width:33%;
+}
+
+.rtr-button-4 li {
+  width:25%;
+}
+
+.rtr-button a {
   text-align: centre;
   background-color: #134859;
   padding-top: 5px;
@@ -111,10 +118,6 @@ body {
   color:white;
   font-size:20px;
   font-weight:bold;
-}
-
-.rtr-button-3 a:active {
-  background-color: #E14123;
 }
 
 //RtR Responsiveness
