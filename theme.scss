@@ -28,9 +28,13 @@ body {
   padding-botom:20px;
 }
 
-.grid {
+.grid .icon-grid {
   width:100%;
   display:table-row;
+}
+
+.icon-grid {
+  height:325px;
 }
 
 .grid div {
@@ -43,6 +47,95 @@ body {
   float:left;
   width:33%;
   display:table-cell;
+}
+
+.grid-4 {
+  float:left;
+  width:24%;
+  dispaly:table-cell;
+}
+
+.grid-icon {
+  padding: 10px;
+  margin:5px;
+  background-color: #134859;
+  font-color: #ffffff; 
+  font-size: 20px; 
+  font-weight: bold;
+  text-decoration: none !important;
+  min-height: 160px;
+  height:100%;
+}
+
+.grid-icon img {
+  filter: invert(45%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid-icon img:hover {
+  filter: invert(80%);
+}
+
+.grid-icon a {
+  color:white !important;
+  text-decoration: none !important;
+}
+
+.grid-icon .grid-3 {
+  width:12%;
+}
+
+.rtr-button-3 {
+  width:100%;
+  padding:0px;
+  display:table;
+}
+
+.rtr-button-3 li {
+  float: left;
+  list-style: none;
+  width: 33%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.rtr-button-3 a {
+  text-align: centre;
+  background-color: #134859;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width:100%;
+  display:block;
+  text-align:center;
+  color:white;
+  font-size:20px;
+  font-weight:bold;
+}
+
+.rtr-button-3 a:active {
+  background-color: #E14123;
+}
+
+//RtR Responsiveness
+@media (max-width: 1100px) {
+  .grid-4 {
+    width:48%;
+    min-height:350px;
+  }
+  .grid-icon img {
+    max-height:280px;
+  }
+}
+
+@media (max-width: 550px) {
+  .grid-4 {
+    width:98%;
+    min-height:350px;
+  }
+  .grid-icon img {
+    max-height:280px;
+  }
 }
 
 // NationBuilder extensions

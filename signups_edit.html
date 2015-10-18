@@ -13,12 +13,11 @@
   
   <div class="form-errors">{% error_messages_for signup %}</div>
   
-  <div class="padtopmore padbottommore">
-    <div class="checkbox"><label for="signup_is_profile_private">{% check_box "is_profile_private", class:"checkbox" %} Don't publish <a href="{{ signup.profile_url }}">my profile</a> on the website</label></div> 
-  </div>
+
   
   <div class="row">
-  	<div class="col-md-6"><div class="form-group"><label for="signup_first_name">First Name</label>{% text_field "first_name", class:"text form-control" %}</div></div>
+  	<div class="col-md-6"><div class="form-group"><label for="signup_first_name">First Name (Leave blank for organizations)</label> {% text_field "first_name", class:"text form-control" %}</div></div>
+
     <div class="col-md-6"><div class="form-group"><label for="signup_last_name">Last Name</label>{% text_field "last_name", class:"text form-control" %}</div></div>
   </div>
   
@@ -35,31 +34,27 @@
   </div>
 
   <div class="row">
-  	<div class="col-md-12"><div class="form-group"><label for="signup_website">Website</label>{% text_field "website", class:"text form-control" %}</div></div>
+  	<div class="col-md-12"><div class="form-group"><label for="signup_website">Website URL</label>{% text_field "website", class:"text form-control" %}</div></div>
   </div>
 
   <div class="row">
-  	<div class="col-md-12"><div class="form-group"><label for="signup_profile_headline">Headline for your profile</label>{% text_field "profile_headline", class:"text form-control" %}</div></div>
+  	<div class="col-md-12"><div class="form-group"><label for="signup_profile_headline">Headline for your page</label>{% text_field "profile_headline", class:"text form-control" %}</div></div>
   </div>
   
   <div class="row">
   	<div class="col-md-12"><div class="form-group">
-      <label for="signup_profile_content_editable">Why do you support {{ site.name }}?</label>
+      <label for="signup_profile_content_editable">Tell us about you, your idea, or organization</label>
+      <p>Advice for projects: you can use this section to create a simple webpage for your event. You can embed Youtube video's on the page simply by putting the URL unformatted on a few line. Images can be included using the <a href ="http://www.w3schools.com/tags/tag_img.asp">following tags</a> in the HTML editor.</p>
  	    <div class="so_ie_does_not_put_this_in_the_footer">{% text_area "profile_content_editable", class:"textarea form-control textarea-tinymce" %}</div>
     </div></div>
   </div>
-
-	{% if settings.is_donor? %}
-	<div class="row padtopmore">
-		<div class="col-md-12"><div class="form-group"><label for="signup_donations_to_raise_amount">I will commit to fundraising:</label>{% text_field "donations_to_raise_amount", class:"text form-control" %}</div></div>
-	</div>
-	{% endif %}
 
 	<div class="row">
 		<div class="col-md-12">
       <div class="checkbox"><label for="signup_is_survey_question_private">{% check_box "is_survey_question_private", class:"checkbox" %} Don't publish my survey question answers on the website</label></div>
       <div class="checkbox"><label for="signup_is_profile_searchable">{% check_box "is_profile_searchable", class:"checkbox" %} Allow search engines to find <a href="{{ signup.profile_url }}">my profile</a></label></div>
       <div class="checkbox"><label for="signup_is_leaderboardable">{% check_box "is_leaderboardable", class:"checkbox" %} Include me in leaderboards</label></div>
+          <div class="checkbox"><label for="signup_is_profile_private">{% check_box "is_profile_private", class:"checkbox" %} Don't publish <a href="{{ signup.profile_url }}">my profile</a> on the website</label></div> 
     </div>
 	</div>
 
@@ -94,7 +89,6 @@
   <div class="row">
   	<div class="col-md-12">
       <div class="form-group"><label for="signup_submitted_address">Address (Street, City, State, Postal code)</label>{% text_field "submitted_address", class:"text form-control" %}</div>
-      <div class="checkbox"><label for="signup_is_volunteer">{% check_box "is_volunteer", class:"checkbox" %} I want to volunteer</label></div>
     </div>
   </div>
   
