@@ -26,6 +26,7 @@ body {
   color:white;
   padding-top:20px;
   padding-botom:20px;
+  overflow:auto;
 }
 
 .grid .icon-grid {
@@ -82,9 +83,7 @@ body {
   text-decoration: none !important;
 }
 
-.grid-icon .grid-3 {
-  width:12%;
-}
+
 
 .rtr-button{
   width:100%;
@@ -118,6 +117,35 @@ body {
   color:white;
   font-size:20px;
   font-weight:bold;
+}
+
+.rtr-social {
+  height: 64px;
+  width: 64px;
+  filter: invert(80%);
+  clip: rect(0px,72pz,72px,0px);
+  padding:4px;
+}
+
+.rtr-social:hover {
+  filter:invert(100%);
+}
+
+.network a {
+  padding:0;
+}
+
+.network {
+  float: right;
+    width:72px !important;
+  height:72px !important;
+  margin:2px;
+   display:table-cell; vertical-align:middle; text-align:center;
+}
+
+.rtr-curved {
+    border: 4px solid #134859;
+    border-radius:4px;
 }
 
 //RtR Responsiveness

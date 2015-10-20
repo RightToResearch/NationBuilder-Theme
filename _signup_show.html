@@ -1,7 +1,9 @@
 <div class="people-list-pic media-left"> {{ signup.bigger_profile_image }}</div>
 
 <div class="media-body">
-
+  <table>
+    <tr>
+      <td>
 	<div class="people-name">{{ signup.published_name_linked }}</div>
 
    {% if signup.has_bio? %}
@@ -14,11 +16,16 @@
           <a href="{{ signup.website }}">{{ signup.website }}</a>
         </div>
         {% endif %}
+      </td><td style="min-width:170px">
 	{% if signup.has_facebook_info? %}
-	<div class="network"><a href="{{ signup.facebook_profile_url }}"><i class="icon-facebook-squared"></i></a></div>
+	<div class="network rtr-button rtr-curved"><a href="{{ signup.facebook_profile_url }}">
+    <img class="rtr-social"  src="http://d3n8a8pro7vhmx.cloudfront.net/themes/55814e112213932968000001/attachments/original/1445335810/facebook.png?1445335810"/>
+    </a></div>
 	{% endif %}
 	{% if signup.has_twitter_info? %}
-	<div class="network"><a href="{{ signup.twitter_profile_url }}"><i class="icon-twitter-squared"></i></a></div>
+	<div class="network rtr-button rtr-curved"><a href="{{ signup.twitter_profile_url }}">
+    <img class="rtr-social" src="http://d3n8a8pro7vhmx.cloudfront.net/themes/55814e112213932968000001/attachments/original/1445337667/twitter.png?1445337667" />
+    </a></div>
 	{% endif %}
-
+      </td></tr></table>
 </div>
