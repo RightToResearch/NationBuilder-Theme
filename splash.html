@@ -22,16 +22,38 @@
 
           <div class="header-container clearfix" {% if site.has_background_image? %} style="background: none;" {% endif %}>
             <div class="container">
+              <style>
+                #splash-btn {
+                  float:right;
+                }
+                .title {
+                  float:left;
+                }
+                #title-bar {
+                  background-color:#CCCCCC;
+                  height:100px;
+                  margin-top:10px;
+                }
+                #splash-btn {
+                  margin-top:15px;
+                  margin-right:15px;
+                }
+                h1 img {
+                  height:41px;
+                  width:41px;
+              </style>
 
-              {% if site.has_meta_image? %}
-                <div class="site-logo">
-                  <header class="splash"><a href="/"><img src="{{ site.meta_image_large_url }}"></a></header>
-                </div>
-              {% else %}
                 <header class="splash">
-                  <h1 class="title"><a href="/">{{ site.long_name }}</a></h1>
+                  <div id="title-bar">
+                  <h1 class="title">
+                    <img src="http://d3n8a8pro7vhmx.cloudfront.net/themes/55814e112213932968000001/attachments/original/1437399137/circle_logo.png?1437399137" />
+                    <a href="/">{{ site.long_name }}</a>
+                  </h1> 
+                    
+                  <div align="right" class="padtopmore padbottom"><a class="submit-button btn btn-primary" id="splash-btn" href="/">Continue to full site</a></div>
+                  </div>
                 </header>
-              {% endif %}
+
 
             </div>
             <!-- .container -->
@@ -59,8 +81,7 @@
                <div class="content-{{ request.template | replace: '_', '-' }}">
                 {% yield %}
 
-                <div align="center" class="padtopmore padbottom"><a class="submit-button btn btn-primary" id="splash-btn" href="/">Continue to {{ site.name }}</a></div>
-
+                
                 {% if request.is_intern? and page.is_editing_available? %}
                   <div align="center" class="padtopmore padbottom"><a class="submit-button btn btn-primary" href="{{ page.admin_edit_url }}">{{ "fugue-edit-signiture" | icon }} Edit this page</a></div>
                 {% endif %}

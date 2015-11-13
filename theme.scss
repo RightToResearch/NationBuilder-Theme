@@ -98,6 +98,10 @@ body {
   padding-right: 5px;
 }
 
+.rtr-button-2 li {
+  width:50%;
+}
+
 .rtr-button-3 li {
   width:33%;
 }
@@ -122,7 +126,7 @@ body {
 .rtr-social {
   height: 64px;
   width: 64px;
-  filter: invert(80%);
+  filter: invert(0%);
   clip: rect(0px,72pz,72px,0px);
   padding:4px;
 }

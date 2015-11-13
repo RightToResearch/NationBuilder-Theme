@@ -6,7 +6,7 @@
       {% if page.event.is_multi_day? %}
       {{ page.event.local_start_at | event_time }} - {{ page.event.local_end_at | event_date }}
       {% else %}
-      {{ page.event.local_start_at | event_time }} - {{ page.event.local_end_at | event_just_time }}
+      {{ page.event.local_start_at | event_time }} - {{ page.event.local_end_at | event_just_time }}<br/>{{page.event.time_zone}}
       {% endif %}
     </div>
   </div>
