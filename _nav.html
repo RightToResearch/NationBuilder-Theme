@@ -10,7 +10,7 @@
       {% if site.has_meta_image? %}
         <a class="navbar-brand" href="/"><img alt="{{ site.long_name }}" src="{{ site.meta_image_url }}"></a>
       {% else %}
-      <a class="navbar-brand" href="/"><img src="circle_logo.png" style="height:20px;width:20px;float:left;margin-right:5px;"/><strong>{{ site.long_name }}</strong></a>
+      <a class="navbar-brand" href="/"><img src="circle_logo.png" style="height:20px;width:20px;float:left;margin-right:5px;"/>{{ site.long_name }}</a>
       {% endif %}
     </div>
     <div id="menu-collapse" class="collapse navbar-collapse">
