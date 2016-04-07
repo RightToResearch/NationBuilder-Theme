@@ -1,10 +1,10 @@
 <div class="people-list-pic media-left"> {{ signup.bigger_profile_image }}</div>
-
 <div class="media-body">
-  <table style="width:100%">
-    <tr stule="width:100%">
-      <td>
+    
+  <div class="signup_wrapper"/>
+
 	<div class="people-name">{{ signup.published_name_linked }}</div>
+        <div class="rtr-people-geo">{{ signup.address.location }}</div>
 
    {% if signup.has_bio? %}
         <div class="padtopless">
@@ -12,7 +12,8 @@
         </div>
         {% endif %}
 
-      </td><td style="width:250px">
+</div>
+      <div class="signup_wrapper">
          {% if signup.has_website? %}
         <div class="network rtr-button rtr-curved">
           <a href="{{ signup.website }}">
@@ -29,5 +30,5 @@
     <img class="rtr-social" src="http://d3n8a8pro7vhmx.cloudfront.net/themes/55814e112213932968000001/attachments/original/1445337667/twitter.png?1445337667" />
     </a></div>
 	{% endif %}
-      </td></tr></table>
+      </div>
 </div>
