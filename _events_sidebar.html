@@ -9,6 +9,7 @@
       {{ page.event.local_start_at | event_time }} - {{ page.event.local_end_at | event_just_time }}<br/>{{page.event.time_zone}}
       {% endif %}
     </div>
+        {% include "partial_add_this_event_link" %}
   </div>
 
  {% if page.event.has_venue? %}

@@ -1,0 +1,52 @@
+      {% form_for signup %}
+
+      {% if request.sorta_logged_in? %}
+
+      {% if request.logged_in? == false %}
+        <div class="padbottommore"><small>If you're not {{ request.current_signup.name_or_email }}, <a href="{{ request.current_signup.logout_url }}">click here to signup</a>.</small></div>
+      {% endif %}
+
+      {% endif %}
+
+      <div class="form-errors">{% error_messages_for signup %}</div>
+
+        {% if request.sorta_logged_in? == false or request.current_signup.has_name? == false %}
+<h3>Get updates on the conference</h3>
+<div class="row">
+          <div class="col-md-6"><div class="form-group"><label for="signup_first_name">First Name</label>{% text_field "first_name", class:"text form-control" %}</div></div>
+          <div class="col-md-6"><div class="form-group"><label for="signup_last_name">Last Name</label>{% text_field "last_name", class:"text form-control" %}</div></div>
+</div>
+
+
+
+        {% endif %}
+
+      {% if page.signup.is_address? %}
+
+      {% if request.sorta_logged_in? == false or request.current_signup.has_full_address? == false %}
+
+      <div class="row">
+          <div class="col-md-6"><div class="form-group"><label for="signup_email">Email</label>{% email_field "email", class:"text form-control" %}</div></div>
+
+        <div class="col-md-6"><div class="form-group"><label for="signup_country_code">Country</label>{% collection_select "country_code", page.signup.countries, "code", "name", class:"select form-control" %}</div></div>
+      </div>
+
+
+      {% if page.signup.has_labeled_tags? %}
+        {% include "labeled_tags" %}
+      {% endif %}
+      {% endif %}
+
+      {% endif %}
+
+
+
+      {% if page.signup.is_all_info_collected? == false %}
+      {% if request.sorta_logged_in? %}
+      {% else %}
+      {% submit_tag "Signup", class:"submit-button btn btn-primary" %}
+      {% endif %}
+      {% endif %}
+      <div class="form-submit"></div>
+
+      {% endform_for %}

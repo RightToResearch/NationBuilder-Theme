@@ -51,7 +51,7 @@
     {% endif %}
 
     <div class="main-container" id="middle">
-      <div class="main container clearfix {% if site.has_background_image? %}well well-lg{% endif %}">
+      <div class="main container clearfix navbar-padding {% if site.has_background_image? %}well well-lg{% endif %}">
 
         {% if request.is_sidebar? %}
         {% include "columns_2" %}
@@ -63,18 +63,11 @@
       <!-- .main -->
     </div>
     <!-- .main-container -->
+    
+    <!-- Add This Event -->
+    {% include "partial_ate_settings" %}
 
     <footer style="background-color:#292C33; padding-top:15px;color:white;">
-      <style>
-        .gridfoot {
-          display:table-row;
-        }
-        .gridfoot .grid-3 {
-          width:32%;
-          padding:5px;
-          display:table-cell;
-        }
-      </style>
       <div class="container {% if site.has_background_image? %}well well-lg{% endif %}" style="margin:auto;">
         {{ content_for_footer }}
         <div style="max-width:1150px;margin-left:auto;margin-right:auto;">
@@ -153,7 +146,7 @@
       jQuery(document).ready(function() {
       jQuery(window).scroll(function() {
     var scroll = jQuery(window).scrollTop();
-    if (scroll >= 500) {
+    if (scroll >= 200) {
        jQuery(".navbar").addClass('smaller');
     } else {
        jQuery(".navbar").removeClass("smaller");
