@@ -103,7 +103,11 @@
           <div class="grid-3">     
             <!-- The NationBuilder link below is required. If it is removed, we may add it back ourselves.
                  You can style it or move it in different ways, but please leave it in the footer. -->
+            {% if request.logged_in? or request.sorta_logged_in? %}
+            <p>Welcome back, {{ request.current_user.first_name }}</p>
+            {% else %}
               <p><a href="login">User log in</a></p>
+            {% endif %}
             <span style="color:gray;">Created with <a href="http://nationbuilder.com/" style="color:gray;">NationBuilder</a></span>
           </div>
         </div>
