@@ -98,7 +98,11 @@ a {
   width:100%;
 }
 
-
+.btn {
+    background-color: #E14023;
+    border-color: #E14023;
+    color: #fff;
+}
 
 .rtr-button{
   width:100%;
@@ -109,13 +113,13 @@ a {
 .rtr-button li {
   float: left;
   list-style: none;
-  padding-left: 5px;
-  padding-right: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
   background-color: #134859;
 }
 
 .rtr-button-2 li {
-  width:50%;
+  width:49%;
 }
 
 .rtr-button-3 li {
@@ -186,8 +190,16 @@ a {
   transition: height 0.3s;
 }
 
-.navbar .smaller {
-  min-height:25px;
+.navbar {
+  height:100px;
+}
+
+.navbar.smaller {
+  height:50px;
+}
+
+.navbar-padding {
+  padding-top: 100px;
 }
 
 //RtR Responsiveness
@@ -216,6 +228,21 @@ a {
     wifth:98%;
   }
 }
+
+.gridfoot {
+          display:table;
+          width:100%;
+        }
+        .gridfoot .grid-3 {
+          width:32%;
+          padding:5px;
+          display:table-cell;
+        }
+        @media (max-width: 550px) {
+        .gridfoot .grid-3 {
+          width:98%;
+        }
+        }
 
 // NationBuilder extensions
 .module {
