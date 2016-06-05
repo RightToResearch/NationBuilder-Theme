@@ -1,8 +1,14 @@
 <div class="media">
   <div class="media-left">
-    {{ request.current_signup.bigger_profile_image }}
+    {% if request.current_signup.profile_image_url contains 'facebook' %}
+    <div class="image" style="width:255px; height:255px; background-image: url({{ request.current_signup.profile_image_url | replace: '=73', '=255' }})"></div>
+ {% elsif request.current_signup.profile_image_url contains 'twitter' %}
+ <div class="image" style="width:255px; height:255px;  background-image: url({{ request.current_signup.profile_image_url | replace: '_73', '_255' }})"></div>
+ {% else %}
+ <div class="image" style="width:255px; height:255px; background-image: url({{ request.current_signup.profile_image_url }})"></div>
+ {% endif %}
   </div>
-  <div class="media-body media-middle">
+  <div class="media-body media-middle" style="display:block;">
     <h5 class="media-heading"><a href="{{ request.current_signup.settings_url }}" class="name" id="name">{{ request.current_signup.name_or_email }}</a></h5>
 
     <div id="myprofile">

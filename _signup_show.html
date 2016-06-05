@@ -1,3 +1,11 @@
+    {% if signup.profile_image_url contains 'facebook' %}
+ <div class="image" style="background-image: url({{ signup.profile_image_url | replace: '=73', '=255' }})"></div>
+ {% elsif signup.profile_image_url contains 'twitter' %}
+ <div class="image" style="background-image: url({{ signup.profile_image_url | replace: '_73', '_255' }})"></div>
+ {% else %}
+ <div class="image" style="background-image: url({{ signup.profile_image_url }})"></div>
+ {% endif %}
+
 <div class="people-list-pic media-left"> {{ signup.bigger_profile_image }}</div>
 <div class="media-body">
     
