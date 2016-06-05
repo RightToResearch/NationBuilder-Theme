@@ -1,0 +1,118 @@
+ {% form_for event_rsvp %}
+
+    <div class="form-wrap">
+      <div class="form">
+
+        {% if request.sorta_logged_in? %}
+
+
+        {% if request.logged_in? == false %}
+        <div class="padtop text-content">
+          If you're not {{ request.current_signup.name_or_email }}, <a href="{{ request.current_signup.logout_url }}">click here</a>.
+        </div>
+        {% endif %}
+
+        {% else %}
+
+
+        {% endif %}
+
+        <div class="padtopmore"></div>
+        <div class="form-errors">{% error_messages_for event_rsvp %}</div>
+
+          {% if request.sorta_logged_in? == false or request.current_signup.has_name? == false %}
+          <div class="row">
+            <div class="col-md-6"><div class="form-group"><label for="event_rsvp_first_name">First Name</label>{% text_field "first_name", class:"text form-control" %}</div></div>
+            <div class="col-md-6"><div class="form-group"><label for="event_rsvp_last_name">Last Name</label>{% text_field "last_name", class:"text form-control" %}</div></div>
+          </div>
+          {% endif %}
+
+          <div class="row">
+          {% if request.sorta_logged_in? == false %}
+          <div class="col-md-6"><div class="form-group"><label for="event_rsvp_email">Email</label>{% email_field "email", class:"text form-control" %}</div></div>
+          {% if site.ask_for_mobiles? %}
+          <div class="col-md-6"><div class="form-group"><label for="event_rsvp_mobile_number">Mobile phone (optional)</label>{% phone_field "mobile_number", class:"text form-control" %}</div></div>
+          {% endif %}
+          </div>
+
+          <div class="row">
+      <!--    <div class="col-md-6"><div class="checkbox"><label for="event_rsvp_email_opt_in">{% check_box "email_opt_in", class:"checkbox" %} Send me email updates</label></div></div> -->
+          {% if site.ask_for_mobiles? %}
+          <div class="col-md-6"><div class="checkbox"><label for="event_rsvp_mobile_opt_in">{% check_box "mobile_opt_in", class:"checkbox" %} Send me text messages</label></div></div>
+          {% endif %}
+          {% endif %}
+          </div>
+
+        {% if page.event.is_phone? %}
+        <div class="row">
+          <div class="col-md-12"><div class="form-group"><label for="event_rsvp_phone_number">Phone</label>{% phone_field "phone_number", class:"text form-control" %}</div></div>
+        </div>
+        {% endif %}
+        {% if page.event.is_address? %}
+        <div class="row">
+          <div class="col-md-12"><div class="form-group"><label for="event_rsvp_submitted_address">Address (Street, City, State, Postal code)</label>{% text_field "submitted_address", class:"text form-control" %}</div></div>
+        </div>
+        {% endif %}
+        {% if page.event.allow_guests? %}
+        <div class="row">
+          <div class="col-md-6"><div class="form-group"><label for="event_rsvp_guests_count">How many other people are you bringing?</label>{% text_field "guests_count", class:"text form-control" %}</div></div>
+        </div>
+        {% endif %}
+      
+        {% if page.event.is_volunteers? and site.ask_for_volunteers? %}
+        {% if request.logged_in? == false or request.current_signup.is_volunteer == false %}
+        <div class="row">
+          <div class="col-md-6"><div class="checkbox"><label for="event_rsvp_is_volunteer">{% check_box "is_volunteer", class:"checkbox" %} I want to volunteer</label></div></div>
+        </div>
+        {% endif %}
+        {% endif %}
+        {% if page.event.is_shifts? and page.event.shifts.size > 0 %}
+        <div class="row">
+          <div class="col-md-6">Choose shifts</div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+        {% for day in page.event.shifts_grouped_by_day %}
+
+          {{ day.last.first.display_date }}:
+          {% for shift in day.last %}
+            <div class="checkbox"><label>{% check_box_tag 'event_rsvp[shift_ids][]', shift.id, collection:page.event.shift_ids, member:shift.id, class:"checkbox" %} {{ shift.display_time }}
+            {% if page.event.show_guests == true %}
+            ({{ shift.rsvps_count_with_goal }})
+            {% endif %}</label></div>
+          {% endfor %}
+
+        {% endfor %}
+        {% hidden_field_tag 'event_rsvp[shift_ids][]', '' %}
+        </div>
+        </div>
+        {% endif %}
+
+        {% if site.ask_to_publish_to_stream? %}
+        <div class="row">
+          <div class="col-md-6"><div class="checkbox"><label for="event_rsvp_is_private">{% check_box "is_private", class:"checkbox" %} Don't publish my RSVP on the website</label></div></div>
+      
+        {% endif %}
+        {% if page.event.has_facebook? %}
+          <div class="col-md-6"><div class="checkbox"><label for="event_rsvp_post_to_facebook">{% check_box "post_to_facebook", class:"checkbox" %} Also RSVP on <a href="{{ page.event.facebook_url }}">Facebook</a> </label></div></div>
+        </div>
+        {% endif %}
+
+        <div class="padtop">
+          {% submit_tag "Send RSVP", class:"submit-button btn btn-primary" %}
+          <div class="form-submit"></div>
+        </div>
+
+        {% if page.event.is_user_ticket_required? %}
+          <div class="padtopmore">
+            NOTE: After RSVP, you will still need to purchase a ticket
+            {% if page.event.has_user_ticket_purchase_url? %}
+            <a href="{{ page.event.user_ticket_purchase_url }}">here</a>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        </div>
+      </div>
+
+    {% endform_for %}
